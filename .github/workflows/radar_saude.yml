@@ -23,7 +23,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           # Install project requirements
-          pip install -r radar-saude/requirements.txt
+          pip install -r radar_saude/requirements.txt
 
       - name: Collect news
         run: |
@@ -35,9 +35,9 @@ jobs:
           OPENAI_MODEL: ${{ secrets.OPENAI_MODEL }}
         run: |
           python - << 'EOF'
-          from radar-saude.src.collect import collect_all_sources
-          from radar-saude.src.classify_and_summarize import build_weekly_newsletter
-          from radar-saude.src.render import render_markdown, save_outputs
+          from radar_saude.src.collect import collect_all_sources
+          from radar_saude.src.classify_and_summarize import build_weekly_newsletter
+          from radar_saude.src.render import render_markdown, save_outputs
 
           news = collect_all_sources()
           newsletter = build_weekly_newsletter(news)
